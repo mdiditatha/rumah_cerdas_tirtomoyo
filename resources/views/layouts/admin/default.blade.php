@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- Sweetalert2 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
+
+  <!-- Intro.js -->
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/intro.js/minified/introjs.min.css">
+  <script type="text/javascript" src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+
   @include('layouts.admin._head')
 </head>
 @if (!Auth::user())
@@ -120,6 +128,70 @@
   <!-- ./wrapper -->
 
   @stack('script')
+  <script type="text/javascript">
+    //intro.js
+    function panduanAdmin()
+    {
+      introJs().setOptions({
+        steps: [{
+          intro: "Panduan untuk penggunaan sidebar menu"
+        }, {
+          element: document.querySelector('#kategori'),
+          intro: "Untuk mengatur data kategori perpustakaan"
+        }, {
+          element: document.querySelector('#buku'),
+          intro: "Untuk mengatur data buku perpustakaan"
+        }, {
+          element: document.querySelector('#anggota'),
+          intro: "Untuk mengatur data anggota perpustakaan"
+        }, {
+          element: document.querySelector('#peminjaman'),
+          intro: "Untuk mengatur data peminjaman perpustakaan"
+        }, {
+          element: document.querySelector('#pengembalian'),
+          intro: "Untuk mengatur data pengembalian perpustakaan"
+        }, {
+          element: document.querySelector('#koleksi'),
+          intro: "Untuk mengatur data koleksi video perpustakaan"
+        }, {
+          element: document.querySelector('#banner'),
+          intro: "Untuk mengatur data banner website"
+        }]
+      }).start();
+    }
+    function panduanAnggota()
+    {
+      introJs().setOptions({
+        steps: [{
+          intro: "Panduan untuk penggunaan sidebar menu"
+        }, {
+          element: document.querySelector('#buku'),
+          intro: "Untuk mengetahui koleksi data buku perpustakaan"
+        }, {
+          element: document.querySelector('#pesan'),
+          intro: "Untuk mengetahui pesan buku perpustakaan"
+        }, {
+          element: document.querySelector('#pinjam'),
+          intro: "Untuk mengetahui pinjam buku perpustakaan"
+        }, {
+          element: document.querySelector('#kembali'),
+          intro: "Untuk mengetahui kembali buku perpustakaan"
+        }, {
+          element: document.querySelector('#koleksi'),
+          intro: "Untuk mengetahui koleksi video"
+        }]
+      }).start();
+    }
+    // Sweetalert02
+    function sweetAlert() 
+    {  
+      Swal.fire({
+        type: 'error',
+        title: 'Oops...',
+        text: 'Masih Belum Aktif',
+      }) 
+    }
+  </script>
   </body>
 @endif
 </html>
