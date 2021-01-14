@@ -51,7 +51,7 @@
       <!-- /.content-wrapper -->
       <footer class="main-footer">
         <div class="container">
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-md-3">
               <p>Mari bersama mewujudkan Desa Tirtomoyo yang maju dan sejahtera didukung dengan pengelolaan pemerintahan desa yang good governance.
 
@@ -76,7 +76,7 @@
             <div class="col-md-3">
               <p>Subscribe</p>
             </div>
-          </div>
+          </div> -->
           <strong>Copyright © 2020 Pemerintah Desa Tirtomoyo | Supported by <a href="#">@Community Service Binus@Malang</a>.</strong> All rights
       reserved.
         </div>
