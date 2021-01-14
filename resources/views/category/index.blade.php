@@ -63,11 +63,15 @@
 	        		<td>{{$e+1}}</td>
 	            	<td>{{$dt->name}}</td>
 	            	<td>
-                      <a class="btn btn-flat btn-xs btn-warning" href="{{url('/kategori/form-edit/'.$dt->slug)}}"><i class="fa fa-pencil"></i></a>
-                    </td>
-                    <td>
-                      <a class="btn btn-flat btn-xs btn-danger btn-hapus" href="{{url('/kategori/hapus/'.$dt->id)}}"><i class="fa fa-trash"></i></a>
-                    </td>
+                  <a class="btn btn-flat btn-xs btn-warning" href="{{url('/kategori/form-edit/'.$dt->slug)}}">
+                    <i class="fa fa-pencil"></i>
+                  </a>
+                </td>
+                <td>
+                  <a class="btn btn-flat btn-xs btn-danger btn-hapus" onclick="hapusKategori()" href="#">
+                    <i class="fa fa-trash"></i>
+                  </a>
+                </td>
 	        	</tr>
 	        	@endforeach
                 </tbody>
@@ -84,6 +88,24 @@
 
 
 @push('script')
+<!-- Script intro.js -->
+<script>
+  function hapusKategori() {
+    Swal.fire({
+      title: 'Apa Anda Yakin?',
+      text: "Mengahapus kategori Akan Berakibat Kehilangan Data!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Iya, Hapus Data!',
+    }).then((result) => {
+      if (result.value) {
+        window.location = "{{url('/kategori/hapus/'.$dt->id)}}";
+      }
+    }) 
+  }
+</script>
 <!-- jQuery 3 -->
 <script src="{{ asset('adminlte/bower_components/jquery/dist/jquery.min.js')}}"></script>
 <!-- Bootstrap 3.3.7 -->
