@@ -172,7 +172,6 @@
   @endsection
 
   @section('content')
-
         <div class="row">
           <div class="col-xs-12">
             <div class="box box-warning">
@@ -215,14 +214,14 @@
                       </td>
                         @if(Auth::user()->level == "staff")
                         <td>
-                        <a class="btn btn-flat btn-xs btn-warning" href="{{url('/buku/form-edit/'.$dt->slug)}}"><i class="fa fa-pencil"></i></a>
+                          <a class="btn btn-flat btn-xs btn-warning" href="{{url('/buku/form-edit/'.$dt->slug)}}"><i class="fa fa-pencil"></i></a>
                         </td>
                         <td>
-                        <form role="form" method="POST" action="{{url('/buku/hapus/'.$dt->id)}}">
-                          @csrf
-                          @method('DELETE')
-                          <button class="btn btn-flat btn-xs btn-danger" type="submit" onclick="return confirm('Apakah Anda yakin ingin menghapus buku ini: {{ $dt->title }} ?')"><i class="fa fa-trash"></i></button>
-                        </form>
+                          <form role="form" method="POST" action="{{url('/buku/hapus/'.$dt->id)}}">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-flat btn-xs btn-danger" type="submit" onclick="return confirm('Apakah Anda yakin ingin menghapus buku ini: {{ $dt->title }} ?')"><i class="fa fa-trash"></i></button>
+                          </form>
                         </td>
                         @endif
                   </tr>

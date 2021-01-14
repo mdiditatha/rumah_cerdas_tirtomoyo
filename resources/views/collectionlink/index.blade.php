@@ -29,39 +29,6 @@
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 @endpush
 
-@push('script')
-<!-- jQuery 3 -->
-<script src="{{ asset('adminlte/bower_components/jquery/dist/jquery.min.js')}}"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="{{ asset('adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-<!-- DataTables -->
-<script src="{{ asset('adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-<script src="{{ asset('adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
-<!-- SlimScroll -->
-<script src="{{ asset('adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
-<!-- FastClick -->
-<script src="{{ asset('adminlte/bower_components/fastclick/lib/fastclick.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('adminlte/dist/js/adminlte.min.js')}}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{ asset('adminlte/dist/js/demo.js')}}"></script>
-<!-- page script -->
-<script>
-  $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
-  })
-</script>
-@endpush
-
-
 @section('content-header')
   <h1>
     Koleksi Link
@@ -96,14 +63,22 @@
                   @foreach($data as $e=>$dt)
                   <tr>
   	        		<td>{{$e+1}}</td>
-  	            	<td>{{$dt->name}}</td>
-  	            	<td><a target="_blank" rel="noopener noreferrer" href="{{$dt->link}}">klik link ini</a></td>
   	            	<td>
-  	            		<a class="btn btn-flat btn-xs btn-warning" href="{{ route('collectionlink.edit',[$dt->id])}}"><i class="fa fa-pencil"></i></a>
+                    {{$dt->name}}
+                  </td>
+  	            	<td>
+                    <a target="_blank" rel="noopener noreferrer" href="{{$dt->link}}">klik link ini</a>
+                  </td>
+  	            	<td>
+  	            		<a class="btn btn-flat btn-xs btn-warning" href="{{ route('collectionlink.edit',[$dt->id])}}">
+                      <i class="fa fa-pencil"></i>
+                    </a>
   	            	</td>
-                  	<td>
-                   		 <a class="btn btn-flat btn-xs btn-danger btn-hapus" href="{{ route('collectionlink.destroy',[$dt->id])}}"><i class="fa fa-trash"></i></a>
-                  	</td>
+                  <td>
+                   	<a class="btn btn-flat btn-xs btn-danger btn-hapus" href="#" onclick="hapusLink()">
+                      <i class="fa fa-trash"></i>
+                    </a>
+                  </td>
   	        	</tr>
   	        	@endforeach
                   </tbody>
@@ -151,3 +126,54 @@
     <!-- /.row -->
   @endsection
 @endif
+
+@push('script')
+<!-- Script Intro.js -->
+<script>
+  function hapusLink()
+  {
+    Swal.fire({
+      title: 'Apa Anda Yakin?',
+      text: "Mengahapus Link Akan Berakibat Kehilangan Data!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Iya, Hapus Data!',
+    }).then((result) => {
+      if (result.value) {
+        window.location = "{{ route('collectionlink.destroy',[$dt->id]) }}";
+      }
+    }) 
+  }
+</script>
+<!-- jQuery 3 -->
+<script src="{{ asset('adminlte/bower_components/jquery/dist/jquery.min.js')}}"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="{{ asset('adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<!-- DataTables -->
+<script src="{{ asset('adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{ asset('adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+<!-- SlimScroll -->
+<script src="{{ asset('adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
+<!-- FastClick -->
+<script src="{{ asset('adminlte/bower_components/fastclick/lib/fastclick.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('adminlte/dist/js/adminlte.min.js')}}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{ asset('adminlte/dist/js/demo.js')}}"></script>
+<!-- page script -->
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
+@endpush

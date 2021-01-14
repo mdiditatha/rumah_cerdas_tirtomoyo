@@ -92,6 +92,25 @@
   @endsection
 
   @push('script')
+  <!-- Script Intro.js -->
+  <script>
+  function hapusBanner()
+  {
+    Swal.fire({
+      title: 'Apa Anda Yakin?',
+      text: "Mengahapus Banner Akan Berakibat Kehilangan Data!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Iya, Hapus Data!',
+    }).then((result) => {
+      if (result.value) {
+        window.location = "{{url('/banner/destroy/'.$dt->id)}}";
+      }
+    }) 
+  }
+  </script>
   <!-- jQuery 3 -->
     <script src="{{ asset('adminlte/bower_components/jquery/dist/jquery.min.js')}}"></script>
   <!-- Bootstrap 3.3.7 -->
