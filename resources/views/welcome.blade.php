@@ -1,6 +1,5 @@
 @extends('layouts.admin.default')
-<!-- Test Commit -->
-<!-- Test Push -->
+
 <!-- Seleksi Guest -->
   @push('style')
 
