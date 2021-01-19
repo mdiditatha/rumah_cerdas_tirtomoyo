@@ -8,13 +8,13 @@
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button" id="minimize">
         <span class="sr-only">Toggle navigation</span>
       </a>
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <li class="dropdown user user-menu">
+          <li class="dropdown user user-menu" id="signout">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               @if(Auth::check() && Auth::user()->level == 'member')
               <img src="{{ asset('uploads/anggota/'.Auth::user()->member->image) }}" class="user-image" alt="User Image">

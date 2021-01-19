@@ -156,6 +156,12 @@
         }, {
           element: document.querySelector('#banner'),
           intro: "Untuk mengatur data banner website"
+        }, {
+          element: document.querySelector('#minimize'),
+          intro: "Untuk memperkecil tampilan sidebar"
+        }, {
+          element: document.querySelector('#signout'),
+          intro: "Klik Sign Out untuk Keluar Dari Akun"
         }]
       }).start();
     }
@@ -179,6 +185,12 @@
         }, {
           element: document.querySelector('#koleksi'),
           intro: "Untuk mengetahui koleksi video"
+        }, {
+          element: document.querySelector('#minimize'),
+          intro: "Untuk memperkecil tampilan sidebar"
+        }, {
+          element: document.querySelector('#signout'),
+          intro: "Klik Sign Out untuk Keluar Dari Akun"
         }]
       }).start();
     }
