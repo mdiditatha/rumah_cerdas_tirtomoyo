@@ -1,4 +1,4 @@
-@extends('layouts.admin.default')
+@extends('layouts.guest.default')
 
 <!-- Seleksi Guest -->
   @push('style')
