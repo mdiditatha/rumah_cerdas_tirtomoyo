@@ -108,7 +108,7 @@
         <div class="col-xs-8">
           <div class="checkbox icheck">
             <label>
-              <input type="checkbox" name="terms_agreement" class="form-control @error('terms_agreement') is-invalid @enderror"> Setuju dengan <a href="#">syarat</a>
+              <input type="checkbox" name="terms_agreement" class="form-control @error('terms_agreement') is-invalid @enderror"> Setuju dengan <a href="{{ url('/syarat-dan-ketentuan') }}">syarat</a>
               @if($errors->has('terms_agreement'))
                 <span class="help-block" style="color:red;">{{ $errors->first('terms_agreement')}}</span>
               @endif

@@ -43,4 +43,13 @@ class HomeController extends Controller
         
         return view('home', compact('book','borrow','member','members','done','carbon','code_book'));
     }
+
+    public function download()
+    {
+        $nama_file = 'index.txt'; //Mencari model atau objek yang dicari
+        $file = public_path() . "/download/index.txt";//Mencari file dari model yang sudah dicari
+        return response()->download($file, $nama_file); //Download file yang dicari berdasarkan nama file
+        //return "halaman download";
+    }
+
 }

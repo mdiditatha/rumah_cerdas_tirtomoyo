@@ -17,6 +17,11 @@ Route::get('/search', 'MemberController@search')->name('home.search');
 //Halaman tampilan list buku untuk guest 
 Route::get('/list/koleksi-video','CollectionLinkController@guest')->name('video.guest');
 
+//Halaman Syarat Dan Ketentuan
+Route::get('/syarat-dan-ketentuan', function(){
+	return view('layouts.syarat');	
+})->name('syarat');
+
 //middleware grup
 Route::group(['middleware'=>'auth'],function() {
         //daftar redirection
@@ -88,13 +93,16 @@ Route::group(['middleware'=>'auth'],function() {
 	Route::get('/pinjam/setuju/{id}','BorrowController@agree')->name('borrow.agree');
 	Route::get('/pinjam/tolak/{id}','BorrowController@reject')->name('borrow.reject');
 
-        //halaman edit banner
+	//halaman edit banner
 	Route::get('/banner','BannerController@index')->name('banner.index');
 	Route::get('/banner/create','BannerController@create')->name('banner.create');
 	Route::post('/banner/create','BannerController@store')->name('banner.store');
 	Route::get('/banner/edit/{id}','BannerController@edit')->name('banner.edit');
 	Route::put('/banner/edit/{id}','BannerController@update')->name('banner.update');
 	Route::delete('/banner/destroy/{id}','BannerController@destroy')->name('banner.destroy');
+
+	//link download
+	Route::get('/download/pdf','HomeController@download')->name('download');
 });
 
 Auth::routes();

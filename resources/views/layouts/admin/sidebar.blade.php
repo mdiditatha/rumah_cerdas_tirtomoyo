@@ -124,6 +124,12 @@
               <i class="fa fa-question"></i> <span>Panduan</span>
             </a>
           </li>
+
+          <li>
+            <a href="{{ route('download') }}">
+              <i class="fa fa-download"></i> <span>Download PDF</span>
+            </a>
+          </li>
         @elseif(Auth::user()->level == 'member' && Auth::user()->status == 'unactive')
           <li class="header">Daftar</li>
           <li class="{{ set_active(['member.edit']) }}">
