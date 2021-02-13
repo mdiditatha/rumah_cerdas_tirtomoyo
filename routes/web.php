@@ -100,10 +100,10 @@ Route::group(['middleware'=>'auth'],function() {
 	Route::get('/banner/edit/{id}','BannerController@edit')->name('banner.edit');
 	Route::put('/banner/edit/{id}','BannerController@update')->name('banner.update');
 	Route::delete('/banner/destroy/{id}','BannerController@destroy')->name('banner.destroy');
-
-	//link download
-	Route::get('/download/pdf','HomeController@download')->name('download');
 });
+
+//link download
+Route::get('/download/pdf','HomeController@download')->name('download');
 
 Auth::routes();
 Route::get('keluar',function(){

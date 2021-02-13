@@ -115,7 +115,7 @@
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-      <strong>Copyright &copy; 2020 <a href="https://hehe.co.id">Community Service Binus@Malang</a>.</strong> All rights
+      <strong>Copyright &copy; 2020 <a href="#">Community Service Binus@Malang</a>.</strong> All rights
       reserved.
     </footer>
 
