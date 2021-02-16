@@ -52,15 +52,6 @@
         <div class="box box-default">
           <div class="box-body">
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-              <ol class="carousel-indicators">
-                @foreach($banners as $e=>$banner)
-                  @if($e == 0)
-                    <li data-target="#carousel-example-generic" data-slide-to="{{$e}}" class="active"></li>
-                  @else
-                    <li data-target="#carousel-example-generic" data-slide-to="{{$e}}" class=""></li>
-                  @endif
-                @endforeach
-              </ol>
               <div class="carousel-inner">
                 @foreach($banners as $e=>$banner)
                   @if($e == 0)
@@ -68,10 +59,7 @@
                   @else
                     <div class="item">
                   @endif
-                      <img src="{{ asset('uploads/info/'.$banner->image) }}" alt="{{ $banner->caption }}" style="height:350px; margin: 0 auto;">
-                      <div class="carousel-caption">
-                        {{ $banner->caption }}
-                      </div>
+                      <img src="{{ asset('uploads/info/'.$banner->image) }}" alt="{{ $banner->caption }}">
                     </div>
                 @endforeach
                 <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
