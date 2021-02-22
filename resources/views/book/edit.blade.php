@@ -65,6 +65,19 @@
                         </div>
                         @endif
 
+                        @if($errors->has('code'))
+                        <div class="form-group has-error">
+                        <label>Kode Buku</label>
+                            <input type="text" name="code" class="form-control" placeholder="Kode Buku.." value="{{$code_book->code}}">
+                            <span class="help-block">{{ $errors->first('code')}}</span>
+                        </div>
+                        @else
+                        <div class="form-group">
+                        <label>Kode Buku</label>
+                            <input type="text" name="code" class="form-control" placeholder="Kode Buku.." value="{{$code_book->code}}">
+                        </div>
+                        @endif
+
                         @if($errors->has('description'))
                         <div class="form-group has-error">
                         <label>Keterangan Buku</label>

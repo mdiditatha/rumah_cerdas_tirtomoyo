@@ -135,7 +135,9 @@ class BookController extends Controller
     {
         $book = Book::where('slug',$slug)->first();
         $category = Category::all();
-        return view('book.edit',compact('book','category'));
+        $code_book = CodeBook::where('book_id',$book->id)->first();
+        return view('book.edit',compact('book','category','code_book'));
+        //return dd($book->id);
     }
 
     /**
@@ -149,6 +151,7 @@ class BookController extends Controller
     {
         $this->validate($request, [
             'title'         => 'required',
+            'code'          => 'required',
             'description'   => 'required',
             'category'      => 'required',
             'image_cover'   => 'sometimes|max:8000',
@@ -168,12 +171,21 @@ class BookController extends Controller
             //Move Uploaded File
             $destinationPath = 'uploads';
             $file->move($destinationPath,$file->getClientOriginalName());
+
+            CodeBook::where('book_id',$id)->update([
+                'code'      => $request->code,
+            ]);
+
         } else {
             Book::where('id',$id)->update([
                 'category_id'   => $request->category,
                 'title'         => $request->title,
                 'description'   => $request->description,
                 'slug'          => \Str::slug($request->title), 
+            ]);
+
+            CodeBook::where('book_id',$id)->update([
+                'code'      => $request->code,
             ]);
         }
         
